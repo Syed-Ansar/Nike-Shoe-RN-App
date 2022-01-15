@@ -3,7 +3,6 @@ import recentlyViewedShoes from '../assets/data/recentlyViewedShoes';
 import React, {useState} from 'react';
 import {
   StyleSheet,
-  SafeAreaView,
   View,
   Text,
   Image,
@@ -21,12 +20,9 @@ const Home = ({navigation}) => {
   const [selectedItem, setSelectedItem] = useState(null);
   const [selectedSize, setSelectedSize] = useState('');
 
-  // Dummy Data
   const [trending, setTrending] = useState(trendingShoes);
 
   const [recentlyViewed, setRecentlyViewed] = useState(recentlyViewedShoes);
-
-  // Render
 
   function renderTrendingShoes(item, index) {
     var trendingStyle = {};
@@ -50,6 +46,7 @@ const Home = ({navigation}) => {
           setSelectedItem(item);
           setShowAddToBagModal(true);
         }}>
+        {/* FIXME: item type*/}
         <Text style={{color: COLORS.gray, ...FONTS.h5}}>{item.type}</Text>
 
         <View
@@ -71,6 +68,7 @@ const Home = ({navigation}) => {
           ]}>
           <View style={{height: '35%', justifyContent: 'space-between'}}>
             <Text style={{color: COLORS.white, ...FONTS.body4}}>
+              {/* TODO: item name */}
               {item.name}
             </Text>
             <Text style={{color: COLORS.white, ...FONTS.h3}}>{item.price}</Text>
